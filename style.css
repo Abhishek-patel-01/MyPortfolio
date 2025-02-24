@@ -70,8 +70,34 @@ nav ul li a:hover::after{
 }
 .header-text h1{
     font-size: 60px;
-    margin-top: 2opx;
+    margin-top: 20px;
+    animation: typing 4s steps(20) infinite;
+    overflow: hidden;
+    white-space: nowrap; 
 }
+@keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  .header-text p {
+    animation: typing-p 4s steps(20) infinite; 
+    overflow: hidden;
+    white-space: nowrap;
+}
+@keyframes typing-p {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+  
 .header-text h1 span{
     color: #ff004f;
 }
@@ -293,17 +319,44 @@ nav .fas {
         background-repeat: no-repeat;
         background-position: bottom;
         background-size: contain;
+        padding-bottom: 250px;
+        height: auto;
     }
-
     .header-text {
-        margin-top: 50%;
+        margin-top: 15%;
         font-size: 16px;
     }
-
     .header-text h1 {
         font-size: 30px;
+        animation: typing-small 4s steps(20) infinite;
+    }
+    @keyframes typing-small {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+      .header-text p {
+        animation: typing-small-p 4s steps(20) infinite;
+        overflow: hidden;
+        white-space: nowrap;
     }
 
+    @keyframes typing-small-p {
+        from {
+            width: 0;
+        }
+        to {
+            width: 100%;
+        }
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+    }
     nav .fas {
         display: block;
         font-size: 25px;
@@ -365,6 +418,7 @@ nav .fas {
     }
 }
 
+
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -382,4 +436,10 @@ nav .fas {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #ff004f;
+}
+
+#msg{
+    color: #61b752;
+    margin-top: -10px;
+    display: block;
 }

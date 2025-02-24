@@ -6,7 +6,6 @@
     <title>Portfolio</title>
     <link rel="shortcut icon" href="./image/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="style.css" />
-    <!-- <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script> -->
     <script
       src="https://kit.fontawesome.com/0229bbcb64.js"
       crossorigin="anonymous"
@@ -29,7 +28,7 @@
 
         <div class="header-text">
           <p>Frontend developer</p>
-          <h1>Hi, i'm <span>Abhishek Patel</span></h1>
+          <h1>Hi, I'm <span>Abhishek Patel</span></h1>
         </div>
       </div>
     </div>
@@ -190,8 +189,7 @@
                 ><i class="fa fa-facebook"></i
               ></a>
               <a href=""><i class="fab fa-twitter-square"></i></a>
-              <a
-                href="https://www.instagram.com/lay_patel77?igsh=MWUzeGVlNWI3NGJoeQ=="
+              <a href="https://www.instagram.com/_lay_patel__77_/"
                 ><i class="fab fa-instagram"></i
               ></a>
               <a
@@ -199,14 +197,16 @@
                 ><i class="fab fa-linkedin"></i
               ></a>
             </div>
-            <a href="" download class="btn btn2">Download CV</a>
+            <a href="./Abhishek_Resume.pdf" download class="btn btn2"
+              >Download CV</a
+            >
           </div>
           <div class="contact-right js-scroll">
-            <form>
+            <form name="submit-to-google-sheet">
               <input type="text" name="Name" placeholder="Your name" required />
               <input
                 type="email"
-                name="email"
+                name="Email"
                 placeholder="Your Email"
                 required
               />
@@ -217,6 +217,7 @@
               ></textarea>
               <button type="submit" class="btn btn2">Submit</button>
             </form>
+            <span id="msg"></span>
           </div>
         </div>
       </div>
@@ -249,6 +250,25 @@
       function closemenu() {
         sidemenu.style.right = "-200px";
       }
+    </script>
+    <script>
+      const scriptURL =
+        "https://script.google.com/macros/s/AKfycbzc6AYUFrUAoms_bmaqjXiYByPb16flXcysqK3m1UEvkHI1843V-RmP7FdpQHyiuvia/exec";
+      const form = document.forms["submit-to-google-sheet"];
+      const msg = document.getElementById("msg");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        fetch(scriptURL, { method: "POST", body: new FormData(form) })
+          .then((response) => {
+            msg.innerHTML = "Message sent successfully!"; // Corrected spelling
+            setTimeout(function () {
+              msg.innerHTML = "";
+            }, 5000);
+            form.reset();
+          })
+          .catch((error) => console.error("Error!", error.message));
+      });
     </script>
   </body>
 </html>
