@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects</title>
+    <link rel="stylesheet" href="style.css">
+    <script
+    src="https://kit.fontawesome.com/0229bbcb64.js"
+    crossorigin="anonymous"
+  ></script>
+  </head>
+  <body>
+    <div id="portfolio">
+      <div class="container js-scroll">
+        <h1 class="sub-title">More Projects</h1>
+        <div class="project-grid">
+          <div class="project-card">
+            <img src="./image/Bmi calculator.png" alt="Project 3" />
+            <h3>BMI Calculator</h3>
+            <p>
+              React BMI calculator with Vite and Tailwind CSS, showcasing modern
+              front-end skills.
+            </p>
+            <a
+              href="https://bmi-calculator-iibr.onrender.com" 
+              target="_blank"
+              class="project-button"
+              >Live Preview</a
+            >
+          </div>
+          <div class="project-card">
+            <img src="./image/form-validation.png" alt="Project 3" />
+            <h3>Car Service</h3>
+            <p>
+              Ensure accurate data entry with our real-time form validation. Built using React and Vite for a seamless user experience.
+            </p>
+            <a
+              href="https://form-validation-olqs.onrender.com" 
+              target="_blank"
+              class="project-button"
+              >Live Preview</a
+            >
+          </div>
+          <!-- <div class="project-card">
+            <img src="./image/LMS.png" alt="Project 3" />
+            <h3>Learning Management System</h3>
+            <p>
+              MERN LMS with MongoDB, React+Vite, Cloudinary, and Stripe for
+              course management and payment
+            </p>
+            <a
+              href="YOUR_LMS_LINK" /* Replace with the correct link */
+              target="_blank"
+              class="project-button"
+              >Live Preview</a
+            >
+          </div> -->
+    </div>
+    <script>
+      // Tab functionality (if you need it on this page)
+      var tablinks = document.getElementsByClassName("tab-links");
+      var tabcontents = document.getElementsByClassName("tab-contents");
+    
+      function opentab(tabname) {
+        if (tablinks && tabcontents) { // Added check
+          for (var tablink of tablinks) {
+            tablink.classList.remove("active-link");
+          }
+          for (var tabcontent of tabcontents) {
+            tabcontent.classList.remove("active-tab");
+          }
+          if (event && event.currentTarget) { // Added event check
+            event.currentTarget.classList.add("active-link");
+          }
+          var tabElement = document.getElementById(tabname);
+          if(tabElement) { //added check
+            tabElement.classList.add("active-tab");
+          }
+        }
+      }
+    
+      // Side menu functionality (if you need it on this page)
+      var sidemenu = document.getElementById("sidemenu");
+    
+      function openmenu() {
+        if (sidemenu) { // Added check
+          sidemenu.style.right = "0";
+        }
+      }
+    
+      function closemenu() {
+        if (sidemenu) { // Added check
+          sidemenu.style.right = "-200px";
+        }
+      }
+    
+      // Google Sheets form submission (if you have a form)
+      const form = document.forms["submit-to-google-sheet"];
+      const msg = document.getElementById("msg");
+    
+      if (form) { // Added check
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+          fetch(
+            "https://script.google.com/macros/s/AKfycbzc6AYUFrUAoms_bmaqjXiYByPb16flXcysqK3m1UEvkHI1843V-RmP7FdpQHyiuvia/exec",
+            { method: "POST", body: new FormData(form) }
+          )
+            .then((response) => {
+              if (msg) { // Added check
+                msg.innerHTML = "Message sent successfully!";
+                setTimeout(function () {
+                  msg.innerHTML = "";
+                }, 5000);
+              }
+              form.reset();
+            })
+            .catch((error) => console.error("Error!", error.message));
+        });
+      }
+    
+      // DOM content loaded event listener
+      document.addEventListener("DOMContentLoaded", function () {
+        const paragraph = document.querySelector(".header-text p");
+        const heading = document.querySelector(".header-text h1");
+    
+        if (paragraph) { // Added check
+          paragraph.classList.add("animate");
+        }
+        if (heading) { // Added check
+          heading.classList.add("animate");
+        }
+    
+        // Scroll Animation Logic
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("scrolled");
+                observer.unobserve(entry.target); // Stop observing after animating
+              }
+            });
+          },
+          {
+            threshold: 0.1, // Trigger when 10% of the element is visible
+          }
+        );
+    
+        const scrollElements = document.querySelectorAll(".js-scroll");
+        if (scrollElements) { //Added check
+          scrollElements.forEach((el) => observer.observe(el));
+        }
+      });
+    </script>
+  </body>
+</html>
