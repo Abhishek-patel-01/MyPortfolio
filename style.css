@@ -499,14 +499,14 @@ nav .fas {
     }
 
     .header-text {
-        margin-top: 50%;
+        margin-top: 90%;
         font-size: 16px;
         text-align: center;
     }
 
     .header-text h1 {
         font-size: 28px;
-        animation: typing-small 3s steps(20) infinite;
+        animation: typing-small 3s steps(15) infinite;
     }
 
     @keyframes typing-small {
@@ -597,7 +597,7 @@ nav .fas {
         font-size: 14px;
         background: rgba(0, 0, 0, 0.1);
         backdrop-filter: blur(8px);
-        padding: 10px;
+        padding: 20px;
         /* position: fixed;  */
         bottom: 0;
         width: 100%;
