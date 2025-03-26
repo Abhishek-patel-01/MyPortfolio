@@ -30,8 +30,28 @@
           <p>Frontend developer</p>
           <h1>Hi, I'm <span>Abhishek Patel</span></h1>
         </div>
+
+        <div class="whatsapp-trigger" onclick="redirectToWhatsApp()">
+          <img
+            src="./image/whatsApp_image.png"
+            alt="WhatsApp"
+            class="whatsapp-icon"
+          />
+          <div class="message-card-hover">
+            <img
+              src="./image/myimage.png"
+              alt="Abhishek Patel"
+              class="profile-pic"
+            />
+            <div class="message-details">
+              <h3>Message Me on WhatsApp</h3>
+              <p>🟢 Available • Let's connect!</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+
     <!-- ------------about--------- -->
     <div id="About">
       <div class="container js-scroll">
@@ -260,7 +280,6 @@
         <p>Copyright ©2025 This template is made with🤍by Abhishek Patel</p>
       </div>
     </div>
-
     <script>
       var tablinks = document.getElementsByClassName("tab-links");
       var tabcontents = document.getElementsByClassName("tab-contents");
@@ -354,6 +373,19 @@
         const scrollElements = document.querySelectorAll(".js-scroll");
         scrollElements.forEach((el) => observer.observe(el));
       });
+    </script>
+    <script>
+      // ... your existing JavaScript ...
+
+      function redirectToWhatsApp() {
+        const phoneNumber = "919925627626";
+        const message =
+          "Hello Abhishek, I'm contacting you from your portfolio!";
+        const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+          message
+        )}`;
+        window.open(whatsappURL, "_blank");
+      }
     </script>
   </body>
 </html>

@@ -474,6 +474,71 @@ form btn2 {
     position: relative;
 }
 
+/* msg part css */
+  .whatsapp-trigger {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    z-index: 1000;
+    cursor: pointer;
+  }
+  
+  .whatsapp-icon {
+    width: 60px; 
+    height: 60px; 
+    object-fit: contain; 
+    transition: transform 0.3s ease;
+  }
+
+  .whatsapp-trigger .whatsapp-icon {
+    animation: rotateWhatsApp 2s linear infinite; 
+  }
+  
+  @keyframes rotateWhatsApp {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .message-card-hover {
+    display: none; 
+    background-color: rgba(0, 0, 0, 0.1); 
+    padding: 15px;
+    border-radius: 10px;
+    position: absolute; 
+    bottom: 70px; 
+    right: 0;
+    width: 400px; 
+    display: none; 
+    align-items: center; 
+  }
+  
+  .whatsapp-trigger:hover .message-card-hover {
+    display: flex; 
+  }
+  
+  .profile-pic {
+    width: 50px; 
+    height: 50px; 
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+  }
+  
+  .message-details h3 {
+    margin: 0 0 5px;
+    font-size: 18px;
+    color: white;
+  }
+  
+  .message-details p {
+    margin: 0;
+    font-size: 14px;
+    color: #e7c5c5;
+  }
 /* -------css for small screens---------- */
 nav .fas {
     display: none;
@@ -506,7 +571,7 @@ nav .fas {
 
     .header-text h1 {
         font-size: 28px;
-        animation: typing-small 3s steps(15) infinite;
+        animation: typing-small 2.3s steps(10) infinite;
     }
 
     @keyframes typing-small {
@@ -602,6 +667,45 @@ nav .fas {
         bottom: 0;
         width: 100%;
     }
+    .whatsapp-trigger {
+        bottom: 20px; /* Adjust bottom position */
+        right: 20px; /* Adjust right position */
+        position: fixed;
+      }
+    
+      .message-card-hover {
+        width: 90%; /* Take up 90% of screen width */
+        bottom: 70px; /* Adjust bottom position */
+        right: 5%; /* Center horizontally */
+      }
+    
+      .profile-pic {
+        width: 40px; /* Reduce profile picture size */
+        height: 40px;
+        margin-right: 10px;
+      }
+    
+      .message-details h3 {
+        font-size: 16px; /* Reduce font size */
+      }
+    
+      .message-details p {
+        font-size: 12px; /* Reduce font size */
+      }
+    }
+    
+    @media (max-width: 480px) { /* Adjust breakpoint as needed */
+      .whatsapp-trigger {
+        width: 50px; /* Reduce icon size */
+        height: 50px;
+      }
+    
+      .message-card-hover {
+        width: 95%; /* Take up more screen width */
+        right: 2.5%; /* Center horizontally */
+        padding: 10px; /* Reduce padding */
+      }
+    
 }
 
 
